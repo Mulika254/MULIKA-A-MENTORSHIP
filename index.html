@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Mulika ‘A’ Mentorship Centre | Modern Holiday School</title>
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #020617;
+      color: #F1F5F9;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* PURPLE GLOW THEME + Green Accent */
+    :root {
+      --purple-primary: #8B5CF6;
+      --purple-glow: #C084FC;
+      --purple-deep: #6d28d9;
+      --green-neon: #00FFB2;
+      --green-accent: #22C55E;
+      --dark-bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --glass-border: rgba(139, 92, 246, 0.4);
+      --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    /* MOBILE-FIRST - 2 COLUMN LAYOUT DESIGNED FOR PHONE */
+    .container {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 16px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 60px 0;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, var(--purple-glow));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: #94A3B8;
+      margin-bottom: 32px;
+      max-width: 100%;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    /* buttons */
+    .btn-primary {
+      background: linear-gradient(105deg, var(--purple-primary), var(--purple-deep));
+      border: none;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px var(--purple-glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--purple-primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(4px);
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--purple-glow);
+      transform: translateY(-2px);
+    }
+
+    /* HERO SECTION - 1 COLUMN, CENTERED, FILLED WITH DESCRIPTIONS */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #020617 0%, #0a0f2a 100%);
+      z-index: -2;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      mix-blend-mode: overlay;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .shape {
+      position: absolute;
+      background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(0,255,178,0.05) 80%);
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: float 18s infinite alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) translateX(0px) scale(1);}
+      100% { transform: translateY(-40px) translateX(30px) scale(1.2);}
+    }
+
+    .hero-content {
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      background: linear-gradient(125deg, #FFFFFF, var(--purple-glow), var(--green-neon));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--purple-glow);
+      margin-bottom: 0.5rem;
+    }
+
+    .motto {
+      font-size: 0.95rem;
+      border-left: 3px solid var(--green-neon);
+      padding-left: 16px;
+      margin: 20px auto;
+      color: #CBD5E1;
+      font-weight: 500;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #CBD5E1;
+      margin: 24px 0 20px;
+    }
+
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 24px;
+      justify-content: center;
+    }
+
+    .hero-feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139, 92, 246, 0.15);
+      padding: 6px 14px;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .hero-feature i {
+      color: var(--green-neon);
+      font-size: 0.9rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    /* TRUST STRIP - 2 COLUMNS (2 rows of 2) */
+    .trust-strip {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(139,92,246,0.3);
+      padding: 16px 0;
+    }
+
+    .trust-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 600;
+      color: #E2E8F0;
+      font-size: 0.8rem;
+      text-align: center;
+      background: rgba(139, 92, 246, 0.1);
+      padding: 12px 8px;
+      border-radius: 16px;
+    }
+
+    .trust-item i {
+      font-size: 1.3rem;
+      color: var(--green-neon);
+      filter: drop-shadow(0 0 6px #00ffb2);
+    }
+
+    /* ABOUT SECTION - 2 COLUMNS (text left, image right) */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about-text {
+      text-align: left;
+    }
+
+    .about-text h2 {
+      text-align: left;
+      font-size: 1.6rem;
+    }
+
+    .about-text p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .feature-list li {
+      margin: 12px 0;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+
+    .feature-list i {
+      color: var(--green-neon);
+      font-size: 1rem;
+    }
+
+    .about-img-card {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -8px rgba(0,0,0,0.5);
+      border: 1px solid rgba(139,92,246,0.5);
+    }
+
+    .about-img-card img {
+      width: 100%;
+      display: block;
+    }
+
+    /* WHAT WE OFFER - 1 COLUMN (VERTICAL STACK) */
+    .offers-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .offer-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      transition: var(--transition);
+      border: 1px solid rgba(139,92,246,0.3);
+      width: 100%;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple-glow);
+      box-shadow: 0 0 20px rgba(139,92,246,0.3);
+    }
+
+    .offer-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .subjects-list {
+      list-style: none;
+      margin: 16px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .subjects-list li {
+      padding: 6px 0;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .badge-highlight {
+      background: rgba(0, 255, 178, 0.15);
+      border-left: 3px solid var(--green-neon);
+      padding: 10px 12px;
+      border-radius: 0.8rem;
+      margin-top: 16px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    /* GALLERY - 2 COLUMNS (2x3 grid) */
+    .gallery-masonry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .gallery-item {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      transition: var(--transition);
+      aspect-ratio: 4/3;
+      border: 1px solid rgba(139,92,246,0.4);
+      background: #0F172A;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px var(--purple-glow);
+    }
+
+    /* DATES - 1 COLUMN */
+    .dates-glow-card {
+      background: linear-gradient(125deg, rgba(139,92,246,0.2), rgba(0,255,178,0.05));
+      backdrop-filter: blur(10px);
+      border-radius: 1.8rem;
+      padding: 1.8rem;
+      text-align: center;
+      border: 1px solid var(--purple-glow);
+      box-shadow: 0 0 25px rgba(139,92,246,0.2);
+    }
+
+    .dates-glow-card h3 {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .dates-glow-card div {
+      font-size: 1rem;
+    }
+
+    /* VENUE - 1 COLUMN (VERTICAL: address above map) */
+    .venue-row {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .venue-info {
+      text-align: center;
+    }
+
+    .venue-info p {
+      font-size: 1rem;
+    }
+
+    .venue-map {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      height: 220px;
+      border: 1px solid var(--purple-glow);
+    }
+
+    .venue-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* CTA - 1 COLUMN */
+    .cta-banner {
+      background: linear-gradient(115deg, #0F172A, #1e1a3a);
+      border-radius: 1.8rem;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(139,92,246,0.6);
+    }
+
+    .cta-banner h2 {
+      font-size: 1.4rem;
+      background: none;
+      color: white;
+    }
+
+    /* CONTACT - 2 COLUMNS */
+    .contact-flex {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(139,92,246,0.4);
+    }
+
+    .contact-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-btn, .call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.8rem;
+      margin-top: 8px;
+      margin-right: 8px;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      color: #020617;
+    }
+    .call-btn {
+      background: var(--purple-primary);
+      color: white;
+    }
+
+    form input, form button {
+      width: 100%;
+      padding: 10px 14px;
+      margin: 8px 0;
+      border-radius: 40px;
+      background: #0F172A;
+      border: 1px solid #334155;
+      color: white;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+
+    form button {
+      background: var(--purple-primary);
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* FOOTER - 2 COLUMNS */
+    footer {
+      background: #020617;
+      border-top: 1px solid rgba(139,92,246,0.3);
+      padding: 40px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-col h3, .footer-col h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-col p {
+      font-size: 0.8rem;
+      margin: 6px 0;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: var(--purple-glow);
+      font-size: 0.9rem;
+    }
+
+    @keyframes bounce {
+      0%,100%{transform:translateX(-50%) translateY(0);}
+      50%{transform:translateX(-50%) translateY(8px);}
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.6s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive - Maintains same column structure, just scales */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 900px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO SECTION - 1 COLUMN, CENTERED -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800" alt="modern students">
+  </div>
+  <div class="floating-shapes">
+    <div class="shape" style="width: 250px; height: 250px; top: 10%; left: -10%;"></div>
+    <div class="shape" style="width: 300px; height: 300px; bottom: 0%; right: -10%;"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-tagline"><i class="fas fa-calendar-alt"></i> Holiday School & Private Tuition — April 2026</div>
+    <h1>Mulika ‘A’<br>Mentorship Centre</h1>
+    <div style="text-align: center;">
+      <p class="motto" style="display: inline-block;">“Shaping Morals And Discipline As We Keep The Mind Focused”</p>
+    </div>
+    <div class="hero-description">
+      <strong>Transform your child's holiday into a season of growth, discipline, and academic excellence.</strong> Our intensive 3-week program blends mentorship with modern teaching methods, ensuring every student returns to school sharper, confident, and morally grounded.
+    </div>
+    <div class="hero-features">
+      <span class="hero-feature"><i class="fas fa-chalkboard-user"></i> Expert Tutors</span>
+      <span class="hero-feature"><i class="fas fa-users"></i> Small Class Sizes</span>
+      <span class="hero-feature"><i class="fas fa-star-of-life"></i> KPSEA/KJSEA Prep</span>
+      <span class="hero-feature"><i class="fas fa-hand-sparkles"></i> Character Mentorship</span>
+    </div>
+    <div class="button-group">
+      <a href="#contact" class="btn-primary"><i class="fas fa-graduation-cap"></i> Enroll Now</a>
+      <a href="#offers" class="btn-outline"><i class="fas fa-chalkboard-user"></i> View Programs</a>
+    </div>
+  </div>
+  <div class="scroll-down">
+    <i class="fas fa-chevron-down fa-lg"></i>
+  </div>
+</section>
+
+<!-- TRUST STRIP - 2 COLUMNS (2 rows of 2) -->
+<div class="trust-strip">
+  <div class="trust-items">
+    <div class="trust-item"><i class="fas fa-calendar-week"></i> 3 Weeks Program</div>
+    <div class="trust-item"><i class="fas fa-users"></i> Grades 6 – Form 4</div>
+    <div class="trust-item"><i class="fas fa-chart-line"></i> KPSEA & KJSEA</div>
+    <div class="trust-item"><i class="fas fa-hand-sparkles"></i> Discipline & Mentorship</div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION - 2 COLUMNS -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text animate-on-scroll">
+        <h2>About Mulika ‘A’</h2>
+        <p>We blend mentorship with academic intensity, shaping disciplined, confident learners. Our holiday program focuses on values, personalized tutoring, and building strong foundations for lifelong success.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Discipline-first approach & moral foundation</li>
+          <li><i class="fas fa-users-viewfinder"></i> Small group mentorship & focused learning</li>
+          <li><i class="fas fa-brain"></i> Innovative holiday modules & exam preparation</li>
+        </ul>
+      </div>
+      <div class="about-img-card animate-on-scroll">
+        <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=400" alt="modern teacher guiding">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER - 1 COLUMN (VERTICAL STACK) -->
+<section id="offers" style="background: radial-gradient(circle at 10% 30%, #0a0f1e, #020617);">
+  <div class="container">
+    <h2 class="animate-on-scroll">What We Offer</h2>
+    <p class="section-sub animate-on-scroll">Tailored learning tracks — from junior foundations to senior excellence.</p>
+    <div class="offers-grid">
+      <div class="offer-card animate-on-scroll">
+        <h3 style="color: var(--green-neon);"><i class="fas fa-child"></i> Junior (Grades 6–9)</h3>
+        <ul class="subjects-list">
+          <li><i class="fas fa-calculator"></i> Mathematics</li>
+          <li><i class="fas fa-flask"></i> Integrated Science</li>
+          <li><i class="fas fa-book-open"></i> English</li>
+          <li><i class="fas fa-language"></i> Kiswahili</li>
+          <li><i class="fas fa-road"></i> Pathways</li>
+        </ul>
+        <div class="badge-highlight"><i class="fas fa-star-of-life"></i> Grade 6 KPSEA Preparation — 20% KJSEA Focus</div>
+      </div>
+      <div class="offer-card animate-on-scroll">
+        <h3 style="color: var(--purple-glow);"><i class="fas fa-user-graduate"></i> Grade 10, Forms 3 & 4</h3>
+        <ul class="subjects-list">
+          <li><i class="fas fa-chart-line"></i> Mathematics</li>
+          <li><i class="fas fa-atom"></i> Chemistry</li>
+          <li><i class="fas fa-book"></i> English</li>
+          <li><i class="fas fa-comments"></i> Kiswahili</li>
+          <li><i class="fas fa-dna"></i> Biology</li>
+          <li><i class="fas fa-microscope"></i> Physics</li>
+          <li><i class="fas fa-hands-helping"></i> Community Learning</li>
+        </ul>
+        <div class="badge-highlight">🔥 Intensive exam readiness & peer mentorship circles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY - 2 COLUMNS -->
+<section id="gallery">
+  <div class="container">
+    <h2 class="animate-on-scroll">Students Enjoying Learning</h2>
+    <p class="section-sub animate-on-scroll">Modern libraries, disciplined assembly & focused learning</p>
+    <div class="gallery-masonry">
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Modern library interior"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/33892136/pexels-photo-33892136.jpeg " alt="Students uniform assembly rows"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/33745700/pexels-photo-33745700.jpeg" alt="Students reading in library"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/34162719/pexels-photo-34162719.jpeg" alt="School assembly rows"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Modern library study area"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/33852222/pexels-photo-33852222.jpeg" alt="Students reading together"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DATES - 1 COLUMN -->
+<section style="padding: 30px 0 20px;">
+  <div class="container">
+    <div class="dates-glow-card animate-on-scroll">
+      <i class="fas fa-calendar-alt" style="font-size: 2rem; color: var(--green-neon);"></i>
+      <h3>📅 April 2026 Program</h3>
+      <div><strong>Start:</strong> Monday, April 6th, 2026 — 8:00 AM</div>
+      <div><strong>End:</strong> Friday, April 24th, 2026 — 1:00 PM</div>
+      <div class="badge-highlight" style="display: inline-block; margin-top: 16px;">✨ 3 Weeks Holiday Program ✨</div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE - 1 COLUMN (VERTICAL: address above map) -->
+<section id="venue">
+  <div class="container">
+    <h2 class="animate-on-scroll">Our Location</h2>
+    <div class="venue-row">
+      <div class="venue-info animate-on-scroll">
+        <i class="fas fa-map-marker-alt" style="font-size: 1.8rem; color: var(--green-neon);"></i>
+        <p style="font-size: 1.3rem; font-weight: 700; margin: 12px 0;">Kikuyu – Kidfarmaco</p>
+        <p>Riverside Drive, Gate 097<br>Serene, secure and inspiring learning environment.</p>
+      </div>
+      <div class="venue-map animate-on-scroll">
+        <iframe src="https://maps.google.com/maps?q=Kikuyu%20Kenya&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA - 1 COLUMN -->
+<section style="padding: 30px 0 50px;">
+  <div class="container">
+    <div class="cta-banner animate-on-scroll">
+      <h2>The Best Way To Spend The Three Weeks School Holiday</h2>
+      <p style="font-size: 0.95rem; margin: 16px 0;">Empower your child with discipline, mentorship & academic excellence.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#contact" class="btn-primary" style="background: linear-gradient(105deg, #00FFB2, #22C55E); color:#020617;"><i class="fas fa-user-plus"></i> Register Now</a>
+        <a href="tel:0722822925" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT - 2 COLUMNS -->
+<section id="contact" style="background: radial-gradient(circle at 80% 20%, #0a0a1a, #020617);">
+  <div class="container">
+    <h2 class="animate-on-scroll">Get In Touch</h2>
+    <div class="contact-flex">
+      <div class="contact-card animate-on-scroll">
+        <h3><i class="fas fa-phone-alt"></i> Connect instantly</h3>
+        <div class="contact-detail-item"><i class="fas fa-mobile-alt" style="color: var(--green-neon); width: 28px;"></i> 0722822925</div>
+        <div class="contact-detail-item"><i class="fas fa-phone" style="color: var(--purple-glow); width: 28px;"></i> 0720813398</div>
+        <div>
+          <a href="https://wa.me/254722822925?text=Hello%20I%20want%20to%20enroll" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="tel:0722822925" class="call-btn"><i class="fas fa-phone"></i> Call</a>
+        </div>
+        <p style="margin-top: 16px;"><i class="fas fa-location-dot"></i> Riverside Drive, Gate 097, Kikuyu</p>
+      </div>
+      <div class="contact-card animate-on-scroll">
+        <h3>Quick Enroll Form</h3>
+        <form id="enrollForm">
+          <input type="text" placeholder="Full Name" required>
+          <input type="text" placeholder="Student Grade (e.g., Grade 7, Form 2)">
+          <input type="tel" placeholder="Phone Number" required>
+          <button type="submit"><i class="fas fa-paper-plane"></i> Submit Inquiry</button>
+        </form>
+        <p id="formFeedback" style="font-size: 0.75rem; margin-top: 8px;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER - 2 COLUMNS -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3 style="color: var(--purple-glow);">Mulika ‘A’<br>Mentorship Centre</h3>
+        <p>Shaping Morals And Discipline As We Keep The Mind Focused</p>
+        <p><em>“Preparing For War In Times Of Peace”</em></p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="#home" style="color:#CBD5E1; text-decoration: none;">Home</a></p>
+        <p><a href="#about" style="color:#CBD5E1; text-decoration: none;">About</a></p>
+        <p><a href="#offers" style="color:#CBD5E1; text-decoration: none;">Programs</a></p>
+        <p><a href="#gallery" style="color:#CBD5E1; text-decoration: none;">Gallery</a></p>
+      </div>
+    </div>
+    <div class="copyright" style="text-align:center; border-top:1px solid #1e293b; padding-top:20px; margin-top:16px; font-size:0.7rem;">© 2026 Mulika ‘A’ Mentorship Centre — Excellence, Morals & Mentorship. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  animateElements.forEach(el => observer.observe(el));
+
+  const form = document.getElementById('enrollForm');
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const feedback = document.getElementById('formFeedback');
+      feedback.innerHTML = '✅ Inquiry sent! We’ll contact you soon.';
+      feedback.style.color = '#00FFB2';
+      form.reset();
+      setTimeout(() => feedback.innerHTML = '', 4000);
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const target = document.querySelector(targetId);
+      if(target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
